@@ -58,7 +58,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-ProjectVersion.txt
+ProjectSettings/ProjectVersion.txt
 
 .vscode/*
 !.vscode/settings.json
