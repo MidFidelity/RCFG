@@ -6,7 +6,7 @@ namespace Player
 {
     using UnityEngine;
 
-    public class ItemManager : MonoBehaviour
+    public class ItemManager
     {
         public static Dictionary<string, int> items;
         public ItemManager()
@@ -22,7 +22,7 @@ namespace Player
 
     }
 
-    public class Player : MonoBehaviour
+    public class Player
     {
         public static ItemManager items;
         public Player()
