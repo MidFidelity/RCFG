@@ -5,7 +5,7 @@ namespace nvp.events
 {
     public class EventManager
     {
-        private static readonly Dictionary<string, GameEventWrapper> EventHandlers;
+        public static Dictionary<string, GameEventWrapper> EventHandlers;
 
         static EventManager()
         {

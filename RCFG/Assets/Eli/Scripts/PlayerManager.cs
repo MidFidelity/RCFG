@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -12,11 +13,11 @@ namespace Player
         public ItemManager()
         {
             items = new Dictionary<string, int>();
-            items.Add("Brot", 0);
-            items.Add("Holz", 0);
-            items.Add("Stein", 0);
-            items.Add("Eisen", 0);
-            items.Add("Gold", 0);
+            items.Add("Brot", 5);
+            items.Add("Holz", 5);
+            items.Add("Stein", 5);
+            items.Add("Eisen", 5);
+            items.Add("Gold", 5);
         }
 
 
@@ -51,6 +52,22 @@ namespace Player
             currPlayerIndex = 0;
             CurrPlayer = new Player();
             OtherPlayer = new Player();
+        }
+
+        void Update()
+        {
+
+            if (CurrPlayer.items.items["Gold"] < -5 || CurrPlayer.items.items["Eisen"] < -5)
+            {
+                SceneManager.LoadScene("loose");
+
+            }
+            if (OtherPlayer.items.items["Gold"] < -5 || OtherPlayer.items.items["Eisen"] < -5)
+            {
+                SceneManager.LoadScene("win");
+
+            }
+
         }
 
         public void swap()
