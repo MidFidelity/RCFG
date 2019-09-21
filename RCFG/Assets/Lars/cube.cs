@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class cube : MonoBehaviour
+public class Cube : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /*// S tart is called before the first frame update
     void Start()
     {
 
@@ -33,6 +33,6 @@ public class cube : MonoBehaviour
 
         // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
-    }
-    }
+    } */
+    
 }
