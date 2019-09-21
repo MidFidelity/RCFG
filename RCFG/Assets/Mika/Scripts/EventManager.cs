@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace nvp.events
 {
-    public class NvpEventController
+    public class EventManager
     {
         private static readonly Dictionary<string, GameEventWrapper> EventHandlers;
 
-        static NvpEventController()
+        static EventManager()
         {
             EventHandlers = new Dictionary<string, GameEventWrapper>();
         }

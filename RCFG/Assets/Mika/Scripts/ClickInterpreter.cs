@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using nvp.events;
 
 public class ClickInterpreter : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Camera camera;
+    private Camera camera;
+    private readonly System.EventArgs eventArgsEmpty= new System.EventArgs();
+
     void Start()
     {
-        
+        camera = Camera.main;
     }
 
-    
+
 
     // Update is called once per frame
     void Update()
@@ -22,7 +25,16 @@ public class ClickInterpreter : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-
+                if (hit.collider != null)
+                {
+                    EventManager.Events("select").TriggerEvent(hit.collider.gameObject,eventArgsEmpty);
+                    /*ISelectable selectable = hit.collider.GetComponent<ISelectable>();
+                    if (selectable != null)
+                    {
+                        
+                        selectable.onSelect(hit.collider, eventArgsEmpty);
+                    }*/
+                }
             }
         }
     }
