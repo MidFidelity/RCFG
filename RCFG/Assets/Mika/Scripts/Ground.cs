@@ -13,6 +13,7 @@ public partial class Ground : MonoBehaviour
     public GameObject content;
     [SerializeField] public bool selected = false;
     public GameObject ore;
+    public GameObject movementMarker;
 
     // Start is called before the first frame update
     void Start()
