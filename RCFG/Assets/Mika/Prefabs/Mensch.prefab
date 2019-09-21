@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 472284459809961718}
   - component: {fileID: 472284459809158870}
   - component: {fileID: 472284459808191510}
+  - component: {fileID: 8092051739605389820}
   m_Layer: 0
   m_Name: Mensch
   m_TagString: Untagged
@@ -77,3 +78,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8092051739605389820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472284459810384598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c11cdaca197cd40bf1f4f0e265f3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 0
+  atk: 5
+  def: 5
+  movingRadius: 2
+  grid: {fileID: 0}
+  ground: {fileID: 0}
+  moveMarker: {fileID: 0}

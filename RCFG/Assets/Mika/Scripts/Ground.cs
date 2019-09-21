@@ -12,7 +12,7 @@ public partial class Ground : MonoBehaviour
     public Material selectedMaterial;
     public Material unselectedMaterial;
     public GameObject content;
-    [SerializeField] public bool selected = false;
+    public bool selected = false;
     public GameObject ore;
     public Text buttonText;
     public GameObject movementMarker;

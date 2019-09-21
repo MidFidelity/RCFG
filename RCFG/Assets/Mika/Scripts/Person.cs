@@ -20,6 +20,8 @@ public class Person : MonoBehaviour
     void Start()
     {
         EventManager.Events("select").GameEventHandler += onSelect;
+        grid = GameObject.Find("World").GetComponent<Grid>();
+        ground = GetComponentInParent<Ground>();
     }
 
     // Update is called once per frame
@@ -30,7 +32,9 @@ public class Person : MonoBehaviour
 
     public void onSelect(object sender, System.EventArgs args)
     {
-        if (((GameObject)sender).GetComponent<Person>() == this || ((GameObject)sender).GetComponent<Ground>() == this.transform.parent.GetComponent<Ground>())
+        if (
+            ((GameObject)sender).GetComponent<Person>() == this 
+            || ((GameObject)sender).GetComponent<Ground>() == this.transform.parent.GetComponent<Ground>())
         {
             if (ground.selected)
             {
@@ -53,7 +57,7 @@ public class Person : MonoBehaviour
                 {
                     if (x >= 0 && y >= 0)
                     {
-                        grid.tiles[x][y].GetComponent<Ground>().
+                        grid.tiles[x,y].GetComponent<Ground>().movementMarker = Instantiate(moveMarker, grid.tiles[x,y].transform);
                     }
                 }
             }
@@ -64,7 +68,16 @@ public class Person : MonoBehaviour
     {
         if (ground.selected)
         {
-            
+            for (int x = position.x - movingRadius; x < 2 * movingRadius; x++)
+            {
+                for (int y = position.y - movingRadius; y < 2 * movingRadius; y++)
+                {
+                    if (x >= 0 && y >= 0)
+                    {
+                        grid.tiles[x,y].GetComponent<Ground>().movementMarker = null;
+                    }
+                }
+            }
         }
     }
 }
