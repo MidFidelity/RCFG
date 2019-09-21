@@ -17,7 +17,7 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridHeight; y++)
             {
-                Instantiate(groundPrefab, new Vector3(x, 0, y), Quaternion.identity, this.transform);
+                Instantiate(groundPrefab, new Vector3(x, Random.value*0.1f, y), Quaternion.identity, this.transform);
             }
         }
     }

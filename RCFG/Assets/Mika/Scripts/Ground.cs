@@ -10,7 +10,7 @@ public partial class Ground : MonoBehaviour
     public Material selectedMaterial;
     public Material unselectedMaterial;
     public GameObject content;
-    [SerializeField] private bool selected = false;
+    [SerializeField] public bool selected = false;
 
     // Start is called before the first frame update
     void Start()

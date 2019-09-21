@@ -49,6 +49,8 @@ namespace Player
         public void swap()
         {
             currPlayerIndex = 1 - currPlayerIndex;
+            Camera.main.GetComponent<CameraMovement>().swapTurns(currPlayerIndex + 1);
+
         }
     }
 
