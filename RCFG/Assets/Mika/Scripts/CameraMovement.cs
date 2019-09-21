@@ -20,13 +20,13 @@ public class CameraMovement : MonoBehaviour
 
     public void swapTurns(int player)
     {
-       /* if (player == 1)
+        if (player == 1)
         {
             GetComponent<Animator>().Play("CameraToP1");
         }
         if (player == 2)
         {
             GetComponent<Animator>().Play("CameraToP2");
-        }*/
+        }
     }
 }
