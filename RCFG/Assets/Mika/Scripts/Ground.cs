@@ -26,13 +26,13 @@ public partial class Ground : MonoBehaviour
 
     public void onSelect(object sender, System.EventArgs args)
     {
-        if (((GameObject)sender).GetComponent<Ground>() != this)
+        if (((GameObject)sender).GetComponent<Ground>() == this|| ((GameObject)sender)==content)
         {
-            deselect();
+            select();
         }
         else
         {
-            select();
+            deselect();
         }
 
 
