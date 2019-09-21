@@ -6,6 +6,7 @@ public class Ore : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject mine;
+    public string minetype;
 
     void Start()
     {

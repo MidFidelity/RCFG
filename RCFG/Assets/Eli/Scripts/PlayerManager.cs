@@ -25,9 +25,17 @@ namespace Player
     public class Player
     {
         public ItemManager items;
+        public int goldMines = 0;
+        public int ironMines = 0;
         public Player()
         {
             items = new ItemManager();
+
+        }
+        public void startTurn()
+        {
+            items.items["Gold"] += goldMines;
+            items.items["Eisen"] += ironMines;
         }
     }
     public class PlayerManager : MonoBehaviour
@@ -45,10 +53,10 @@ namespace Player
             OtherPlayer = new Player();
         }
 
-
         public void swap()
         {
             currPlayerIndex = 1 - currPlayerIndex;
+            CurrPlayer.startTurn();
             Camera.main.GetComponent<CameraMovement>().swapTurns(currPlayerIndex + 1);
 
         }

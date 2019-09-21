@@ -106,3 +106,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mine: {fileID: 2469666173964964362, guid: 994932c4c7358ff4e95b19c0c8998afc, type: 3}
+  minetype: iron

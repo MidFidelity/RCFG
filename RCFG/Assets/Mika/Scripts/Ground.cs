@@ -73,6 +73,15 @@ public partial class Ground : MonoBehaviour
     {
         this.content = Instantiate(transform.GetChild(1).GetComponent<Ore>().mine, this.transform);
         content.GetComponent<Mine>().player = GetComponentInParent<PlayerManager>().CurrPlayer;
+        if (transform.GetChild(1).GetComponent<Ore>().minetype == "gold")
+        {
+            GetComponentInParent<PlayerManager>().CurrPlayer.goldMines++;
+        }
+        else
+        {
+            GetComponentInParent<PlayerManager>().CurrPlayer.ironMines++;
+        }
+        
     }
 
 }
