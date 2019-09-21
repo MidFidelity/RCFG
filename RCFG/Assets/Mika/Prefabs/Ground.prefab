@@ -187,6 +187,7 @@ MonoBehaviour:
   content: {fileID: 0}
   selected: 0
   ore: {fileID: 0}
+  buttonText: {fileID: 8296102397580666706}
 --- !u!1 &7550778274923027169
 GameObject:
   m_ObjectHideFlags: 0

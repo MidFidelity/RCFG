@@ -4,6 +4,7 @@ using UnityEngine;
 using nvp.events;
 using System;
 using Player;
+using UnityEngine.UI;
 
 public partial class Ground : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public partial class Ground : MonoBehaviour
     public GameObject content;
     [SerializeField] public bool selected = false;
     public GameObject ore;
+    public Text buttonText;
+    public GameObject movementMarker;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +54,7 @@ public partial class Ground : MonoBehaviour
             if (ore != null && content == null)
             {
                 transform.GetChild(0).gameObject.SetActive(true);
+                //buttonText.GetComponent<Text>().text = content.gameObject.name.Split('(')[0];
             }
         }
     }
