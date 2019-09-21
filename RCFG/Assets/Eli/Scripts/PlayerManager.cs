@@ -8,7 +8,7 @@ namespace Player
 
     public class ItemManager : MonoBehaviour
     {
-        public static Dictionary<string, int> items;
+        public Dictionary<string, int> items;
         public ItemManager()
         {
             items = new Dictionary<string, int>();
@@ -24,7 +24,7 @@ namespace Player
 
     public class Player : MonoBehaviour
     {
-        public static ItemManager items;
+        public ItemManager items;
         public Player()
         {
             items = new ItemManager();
