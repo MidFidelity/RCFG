@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d39410352dae5a040aeaeea3180d4d3b
+guid: 9f8213fb45d02a64392fc6544202cbe9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -14,9 +14,7 @@ ModelImporter:
     2000000: Camera
     2100000: Material
     2300000: Cube
-    2300002: //RootNode
     3300000: Cube
-    3300002: //RootNode
     4300000: Cube
     10800000: Light
   externalObjects: {}
