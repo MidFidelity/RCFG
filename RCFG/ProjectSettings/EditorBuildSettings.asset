@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Mika/main.unity
+    guid: ad749fdda325aa1439cc79deb1294304
+  - enabled: 1
+    path: Assets/Eli/loose.unity
+    guid: 96840be5e54d27a449bd2beef03e8de3
+  - enabled: 1
+    path: Assets/Eli/win.unity
+    guid: a500d741d995e724db3498a97915c397
   m_configObjects: {}

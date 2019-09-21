@@ -108,3 +108,5 @@ MonoBehaviour:
   selected: 0
   selectedMaterial: {fileID: 2100000, guid: 1f0e1ca4d6008969da05e2398bfc8c34, type: 2}
   unselectedMaterial: {fileID: 2100000, guid: 4a1ad646116701740b358770fdeb79f7, type: 2}
+  pos: {x: 0, y: 0}
+  world: {fileID: 0}

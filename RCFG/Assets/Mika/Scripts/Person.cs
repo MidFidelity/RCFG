@@ -1,4 +1,5 @@
 ﻿using nvp.events;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,11 +33,23 @@ public class Person : MonoBehaviour
         }
         else
         {
-            if (((GameObject)sender))
+            GameObject[,] tiles = world.GetComponent<Grid>().tiles;
+            for (int x = 0; x < tiles.GetLength(0); x++)
             {
-
+                for (int y = 0; y < tiles.GetLength(1); y++)
+                {
+                    if (tiles[x, y].GetInstanceID() == ((GameObject)sender).GetInstanceID())
+                    {
+                        Vector2 diff = new Vector2(pos.x - x, pos.y + y);
+                        if (true)
+                        {
+                            transform.SetParent(tiles[x, y].transform);
+                            transform.localPosition = new Vector3(0, 1, 0);
+                        }
+                    }
+                }
             }
-            deselect();
+            deselect(sender);
         }
 
 
@@ -52,10 +65,11 @@ public class Person : MonoBehaviour
         }
     }
 
-    public void deselect()
+    public void deselect(object sender)
     {
         if (selected)
         {
+            
             this.transform.localPosition -= new Vector3(0, 0.5f, 0);
             selected = false;
             this.GetComponent<Renderer>().material = unselectedMaterial;
