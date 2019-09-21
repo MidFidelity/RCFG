@@ -74,7 +74,7 @@ public partial class Ground : MonoBehaviour
         this.content = Instantiate(transform.GetChild(1).GetComponent<Ore>().mine, this.transform);
         content.GetComponent<Mine>().player = GetComponentInParent<PlayerManager>().CurrPlayer;
         GetComponentInParent<PlayerManager>().CurrPlayer.items.items["Gold"] -= content.GetComponent<Mine>().priceGold;
-        GetComponentInParent<PlayerManager>().CurrPlayer.items.items["Iron"] -= content.GetComponent<Mine>().priceIron;
+        GetComponentInParent<PlayerManager>().CurrPlayer.items.items["Eisen"] -= content.GetComponent<Mine>().priceIron;
         if (transform.GetChild(1).GetComponent<Ore>().minetype == "gold")
         {
             GetComponentInParent<PlayerManager>().CurrPlayer.goldMines++;
