@@ -90,3 +90,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ad32b313f0d74478c8a8050bdc7de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priceGold: 2
+  priceIron: 2

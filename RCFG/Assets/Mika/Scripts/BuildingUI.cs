@@ -31,6 +31,7 @@ public class BuildingUI : MonoBehaviour
             {
                 case "Build":
                     functionContainer.GetComponent<Ground>().build();
+                    transform.GetChild(0).GetComponentInChildren<Text>().text = "Build \n" + GetComponentInParent<Ground>().ore.GetComponent<Ore>().mine.GetComponent<Mine>().priceGold + "\n" + GetComponentInParent<Ground>().ore.GetComponent<Ore>().mine.GetComponent<Mine>().priceIron;
                     break;
                 case "Destroy":
                     functionContainer.GetComponent<Building>().destroy();

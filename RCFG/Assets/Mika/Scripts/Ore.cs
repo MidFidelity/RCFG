@@ -8,6 +8,7 @@ public class Ore : MonoBehaviour
     public GameObject mine;
     public string minetype;
 
+
     void Start()
     {
         

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
+    public int priceGold =2;
+    public int priceIron =2;
+
     // Start is called before the first frame update
     void Start()
     {
