@@ -21,6 +21,7 @@ public class ClickInterpreter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))

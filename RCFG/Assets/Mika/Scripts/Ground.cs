@@ -7,9 +7,10 @@ using System;
 public partial class Ground : MonoBehaviour
 {
 
-
+    public Material selectedMaterial;
+    public Material unselectedMaterial;
     public GameObject content;
-    [SerializeField] private bool selected = false;
+    [SerializeField] public bool selected = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +26,13 @@ public partial class Ground : MonoBehaviour
 
     public void onSelect(object sender, System.EventArgs args)
     {
-        if (((GameObject)sender).GetComponent<Ground>() != this)
+        if (((GameObject)sender).GetComponent<Ground>() == this|| ((GameObject)sender)==content)
         {
-            deselect();
+            select();
         }
         else
         {
-            select();
+            deselect();
         }
 
 
@@ -43,6 +44,7 @@ public partial class Ground : MonoBehaviour
         {
             this.transform.localPosition += new Vector3(0, 0.5f, 0);
             selected = true;
+            this.GetComponent<Renderer>().material = selectedMaterial;
         }
     }
 
@@ -52,6 +54,7 @@ public partial class Ground : MonoBehaviour
         {
             this.transform.localPosition -= new Vector3(0, 0.5f, 0);
             selected = false;
+            this.GetComponent<Renderer>().material = unselectedMaterial;
         }
     }
 

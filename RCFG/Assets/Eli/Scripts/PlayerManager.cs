@@ -6,7 +6,7 @@ namespace Player
 {
     using UnityEngine;
 
-    public class ItemManager : MonoBehaviour
+    public class ItemManager
     {
         public Dictionary<string, int> items;
         public ItemManager()
@@ -22,7 +22,7 @@ namespace Player
 
     }
 
-    public class Player : MonoBehaviour
+    public class Player
     {
         public ItemManager items;
         public Player()
@@ -49,6 +49,8 @@ namespace Player
         public void swap()
         {
             currPlayerIndex = 1 - currPlayerIndex;
+            Camera.main.GetComponent<CameraMovement>().swapTurns(currPlayerIndex + 1);
+
         }
     }
 
