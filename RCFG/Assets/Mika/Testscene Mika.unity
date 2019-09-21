@@ -235,7 +235,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.82
+  orthographic size: 13.12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -531,6 +531,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 7201047236201079895, guid: 6adb5e0cceb42a042bee27d7975ad165,
     type: 3}
+  ores:
+  - {fileID: 1683357494329669507, guid: d7520677ea0617a4b9f8dde6f350cf4c, type: 3}
+  - {fileID: 1683357494329669507, guid: d7520677ea0617a4b9f8dde6f350cf4c, type: 3}
+  - {fileID: 2087496084881774316, guid: f481bf634884b234ebd502f51a66339f, type: 3}
+  - {fileID: 2087496084881774316, guid: f481bf634884b234ebd502f51a66339f, type: 3}
+  - {fileID: 2087496084881774316, guid: f481bf634884b234ebd502f51a66339f, type: 3}
   gridWidth: 40
   gridHeight: 40
 --- !u!4 &494846193

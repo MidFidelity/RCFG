@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using nvp.events;
 using System;
+using Player;
 
 public partial class Ground : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public partial class Ground : MonoBehaviour
     public Material unselectedMaterial;
     public GameObject content;
     [SerializeField] public bool selected = false;
+    public GameObject ore;
 
     // Start is called before the first frame update
     void Start()
     {
         EventManager.Events("select").GameEventHandler += onSelect;
+        transform.GetChild(0).GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -45,6 +48,10 @@ public partial class Ground : MonoBehaviour
             this.transform.localPosition += new Vector3(0, 0.5f, 0);
             selected = true;
             this.GetComponent<Renderer>().material = selectedMaterial;
+            if (ore != null && content == null)
+            {
+                transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
     }
 
@@ -55,7 +62,17 @@ public partial class Ground : MonoBehaviour
             this.transform.localPosition -= new Vector3(0, 0.5f, 0);
             selected = false;
             this.GetComponent<Renderer>().material = unselectedMaterial;
+            if (ore != null && content == null)
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
+    }
+
+    public void build()
+    {
+        this.content = Instantiate(transform.GetChild(1).GetComponent<Ore>().mine, this.transform);
+        content.GetComponent<Mine>().player = GetComponentInParent<PlayerManager>().CurrPlayer;
     }
 
 }
