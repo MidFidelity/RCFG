@@ -7,7 +7,8 @@ using System;
 public partial class Ground : MonoBehaviour
 {
 
-
+    public Material selectedMaterial;
+    public Material unselectedMaterial;
     public GameObject content;
     [SerializeField] private bool selected = false;
 
@@ -43,6 +44,7 @@ public partial class Ground : MonoBehaviour
         {
             this.transform.localPosition += new Vector3(0, 0.5f, 0);
             selected = true;
+            this.GetComponent<Renderer>().material = selectedMaterial;
         }
     }
 
@@ -52,6 +54,7 @@ public partial class Ground : MonoBehaviour
         {
             this.transform.localPosition -= new Vector3(0, 0.5f, 0);
             selected = false;
+            this.GetComponent<Renderer>().material = unselectedMaterial;
         }
     }
 
