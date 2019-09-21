@@ -71,7 +71,15 @@ public partial class Ground : MonoBehaviour
 
     public void build()
     {
-        this.content = Instantiate(transform.GetChild(1).GetComponent<Ore>().mine, this.transform);
+        if (GetComponentInParent<PlayerManager>().currPlayerIndex == 1)
+        {
+            this.content = Instantiate(transform.GetChild(1).GetComponent<Ore>().mine, this.transform.position+Vector3.up, Quaternion.Euler(-90, 125, 0), this.transform);
+        }
+        else
+        {
+            this.content = Instantiate(transform.GetChild(1).GetComponent<Ore>().mine, this.transform.position + Vector3.up, Quaternion.Euler(-90, -55, 0), this.transform);
+
+        }
         content.GetComponent<Mine>().player = GetComponentInParent<PlayerManager>().CurrPlayer;
         GetComponentInParent<PlayerManager>().CurrPlayer.items.items["Gold"] -= content.GetComponent<Mine>().priceGold;
         GetComponentInParent<PlayerManager>().CurrPlayer.items.items["Eisen"] -= content.GetComponent<Mine>().priceIron;
