@@ -19,7 +19,7 @@ public class ClickInterpreter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);

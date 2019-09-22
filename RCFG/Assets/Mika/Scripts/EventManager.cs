@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace nvp.events
 {
@@ -15,7 +16,7 @@ namespace nvp.events
         public static GameEventWrapper Events(string eventName)
         {
             if (!EventHandlers.ContainsKey(eventName))
-                EventHandlers[eventName] = new GameEventWrapper();
+                EventHandlers[eventName] = new GameEventWrapper(eventName);
 
             return EventHandlers[eventName];
         }
@@ -24,10 +25,16 @@ namespace nvp.events
     public class GameEventWrapper
     {
         public event EventHandler GameEventHandler;
+        public string eventName;
 
+        public GameEventWrapper(string eventName)
+        {
+            this.eventName = eventName;
+        }
         public void TriggerEvent(object sender, EventArgs eventArgs)
         {
-            GameEventHandler?.Invoke(sender, eventArgs);
+            Debug.Log(eventName);
+           GameEventHandler?.Invoke(sender, eventArgs);
         }
     }
 

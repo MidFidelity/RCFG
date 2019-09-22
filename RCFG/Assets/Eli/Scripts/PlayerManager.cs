@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 namespace Player
 {
+    using nvp.events;
+    using System;
     using UnityEngine;
 
     public class ItemManager
@@ -26,12 +28,13 @@ namespace Player
     public class Player
     {
         public ItemManager items;
+        public int id;
         public int goldMines = 0;
         public int ironMines = 0;
-        public Player()
+        public Player(int id)
         {
             items = new ItemManager();
-
+            this.id = id;
         }
         public void startTurn()
         {
@@ -50,8 +53,8 @@ namespace Player
         {
             players = new Player[2];
             currPlayerIndex = 0;
-            CurrPlayer = new Player();
-            OtherPlayer = new Player();
+            CurrPlayer = new Player(1);
+            OtherPlayer = new Player(2);
         }
 
         void Update()
@@ -75,6 +78,7 @@ namespace Player
             currPlayerIndex = 1 - currPlayerIndex;
             CurrPlayer.startTurn();
             Camera.main.GetComponent<CameraMovement>().swapTurns(currPlayerIndex + 1);
+            EventManager.Events("startTurn").TriggerEvent(this, EventArgs.Empty);
 
         }
     }
