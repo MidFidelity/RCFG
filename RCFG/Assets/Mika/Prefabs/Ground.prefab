@@ -189,7 +189,7 @@ MonoBehaviour:
   ore: {fileID: 0}
   movementMarker: {fileID: 0}
   pos: {x: 0, y: 0}
-  PersonPrefab: {fileID: 6402069503041428461, guid: d2ae52fe257ccc24b87cbaf3f557ce00,
+  PersonPrefab: {fileID: 5558888287166039137, guid: 5bd3b9d6b3b7752419edeaf17bfadebd,
     type: 3}
 --- !u!1 &7550778274923027169
 GameObject:
