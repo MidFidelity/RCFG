@@ -9,7 +9,7 @@ public class Person : MonoBehaviour
     public bool selected=false;
     public Material selectedMaterial;
     public Material unselectedMaterial;
-    public Vector2 pos;
+    public Vector2Int pos;
     public GameObject world;
 
 
@@ -40,8 +40,8 @@ public class Person : MonoBehaviour
                 {
                     if (tiles[x, y].GetInstanceID() == ((GameObject)sender).GetInstanceID())
                     {
-                        Vector2 diff = new Vector2(pos.x - x, pos.y + y);
-                        if (true)
+                        Vector2Int diff = new Vector2Int(pos.x - x, pos.y + y);
+                        if (selected )
                         {
                             transform.SetParent(tiles[x, y].transform);
                             transform.localPosition = new Vector3(0, 1, 0);
