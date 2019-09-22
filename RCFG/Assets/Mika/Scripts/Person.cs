@@ -4,77 +4,86 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Person : MonoBehaviour
-{
-    public bool selected=false;
-    public Material selectedMaterial;
-    public Material unselectedMaterial;
-    public Vector2Int pos;
-    public GameObject world;
 
 
-    // Start is called before the first frame update
-    void Start()
+    public class Person : MonoBehaviour
     {
-        EventManager.Events("select").GameEventHandler += onSelect;
+        public bool selected = false;
+        public Material selectedMaterial;
+        public Material unselectedMaterial;
+        public Vector2Int pos;
+        public GameObject world;
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void onSelect(object sender, System.EventArgs args)
-    {
-        if (((GameObject)sender).GetComponent<Person>() == this)
+        // Start is called before the first frame update
+        void Start()
         {
-            select();
+            EventManager.Events("select").GameEventHandler += onSelect;
+        world = transform.parent.parent.gameObject;
         }
-        else
+
+        // Update is called once per frame
+        void Update()
         {
-            GameObject[,] tiles = world.GetComponent<Grid>().tiles;
-            for (int x = 0; x < tiles.GetLength(0); x++)
+
+        }
+        public void onSelect(object sender, System.EventArgs args)
+        {
+            if (((GameObject)sender).GetComponent<Person>() == this)
             {
-                for (int y = 0; y < tiles.GetLength(1); y++)
+                select();
+            }
+            else
+            {
+                GameObject[,] tiles = world.GetComponent<Grid>().tiles;
+                for (int x = 0; x < tiles.GetLength(0); x++)
                 {
-                    if (tiles[x, y].GetInstanceID() == ((GameObject)sender).GetInstanceID())
+                    for (int y = 0; y < tiles.GetLength(1); y++)
                     {
-                        Vector2Int diff = new Vector2Int(pos.x - x, pos.y + y);
-                        if (selected )
+                        if (tiles[x, y].GetInstanceID() == ((GameObject)sender).GetInstanceID())
                         {
-                            transform.SetParent(tiles[x, y].transform);
-                            transform.localPosition = new Vector3(0, 1, 0);
+                            Vector2Int diff = new Vector2Int(pos.x - x, pos.y + y);
+                            if (selected)
+                            {
+                                transform.SetParent(tiles[x, y].transform);
+                                transform.localPosition = new Vector3(0, 1, 0);
+                            }
                         }
                     }
                 }
+                deselect(sender);
             }
-            deselect(sender);
+
+
         }
 
-
-    }
-
-    void select()
-    {
-        if (!selected)
+        void select()
         {
-            this.transform.localPosition += new Vector3(0, 0.5f, 0);
-            selected = true;
-            this.GetComponent<Renderer>().material = selectedMaterial;
+            if (!selected)
+            {
+                this.transform.localPosition += new Vector3(0, 0.5f, 0);
+                selected = true;
+                this.GetComponent<Renderer>().material = selectedMaterial;
+            }
         }
-    }
 
-    public void deselect(object sender)
-    {
-        if (selected)
+        public void deselect(object sender)
         {
-            
-            this.transform.localPosition -= new Vector3(0, 0.5f, 0);
-            selected = false;
-            this.GetComponent<Renderer>().material = unselectedMaterial;
+            if (selected)
+            {
+
+                this.transform.localPosition -= new Vector3(0, 0.5f, 0);
+                selected = false;
+                this.GetComponent<Renderer>().material = unselectedMaterial;
+            }
+
+
         }
 
-
+        public void create(Vector2Int pos,GameObject caller)
+        {
+        GameObject temp = Instantiate(this.gameObject, caller.transform);
+        
+        }
     }
-}
+

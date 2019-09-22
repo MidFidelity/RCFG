@@ -39,4 +39,9 @@ public class ClickInterpreter : MonoBehaviour
             }
         }
     }
+
+    public void createPerson()
+    {
+        EventManager.Events("createPerson").TriggerEvent(this, eventArgsEmpty);
+    }
 }

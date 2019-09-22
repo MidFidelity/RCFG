@@ -21,7 +21,7 @@ public class Grid : MonoBehaviour
             for (int y = 0; y < gridHeight; y++)
             {
                 tiles[x, y] = Instantiate(groundPrefab, new Vector3(x, Random.value*0.1f, y), Quaternion.identity, this.transform);
-
+                tiles[x, y].GetComponent<Ground>().pos = new Vector2Int(x, y);
                 
             }
         }
@@ -31,6 +31,7 @@ public class Grid : MonoBehaviour
             {
                 GameObject temp = Instantiate(ores[Random.Range(0, 4)], tile.transform);
                 tile.GetComponent<Ground>().ore = temp;
+
             }
         }
 

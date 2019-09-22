@@ -14,11 +14,14 @@ public partial class Ground : MonoBehaviour
     [SerializeField] public bool selected = false;
     public GameObject ore;
     public GameObject movementMarker;
+    public Vector2Int pos;
+    public GameObject PersonPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
         EventManager.Events("select").GameEventHandler += onSelect;
+        EventManager.Events("createPerson").GameEventHandler += createPerson;
         transform.GetChild(0).GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
@@ -93,6 +96,14 @@ public partial class Ground : MonoBehaviour
             GetComponentInParent<PlayerManager>().CurrPlayer.ironMines++;
         }
         
+    }
+
+    public void createPerson(object sender, System.EventArgs args)
+    {
+        if (selected)
+        {
+            PersonPrefab.GetComponent<Person>().create(this.pos, this.gameObject);
+        }
     }
 
 }
