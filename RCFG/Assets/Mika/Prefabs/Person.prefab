@@ -110,3 +110,5 @@ MonoBehaviour:
   unselectedMaterial: {fileID: 2100000, guid: 4a1ad646116701740b358770fdeb79f7, type: 2}
   pos: {x: 0, y: 0}
   world: {fileID: 0}
+  movementMarker: {fileID: 3708733580108573426, guid: 2424bcddde902724e80855be4f2578fa,
+    type: 3}

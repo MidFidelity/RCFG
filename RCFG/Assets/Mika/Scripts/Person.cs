@@ -13,6 +13,7 @@ using UnityEngine;
         public Material unselectedMaterial;
         public Vector2Int pos;
         public GameObject world;
+    public GameObject movementMarker;
 
 
         // Start is called before the first frame update
@@ -47,11 +48,13 @@ using UnityEngine;
                             {
                                 transform.SetParent(tiles[x, y].transform);
                                 transform.localPosition = new Vector3(0, 1, 0);
+                            pos = new Vector2Int(x, y);
                             }
                         }
                     }
                 }
                 deselect(sender);
+            EventManager.Events("removeMarkers").TriggerEvent(this, EventArgs.Empty);
             }
 
 
@@ -61,9 +64,18 @@ using UnityEngine;
         {
             if (!selected)
             {
-                this.transform.localPosition += new Vector3(0, 0.5f, 0);
+            GameObject[,] tiles = world.GetComponent<Grid>().tiles;
+            this.transform.localPosition += new Vector3(0, 0.5f, 0);
                 selected = true;
                 this.GetComponent<Renderer>().material = selectedMaterial;
+            for (int x = pos.x-2;x <= pos.x+2; x++)
+            {
+                for (int y = pos.y - 2; y <= pos.y + 2; y++)
+                {
+                    if (x >= 0 && x <= 40 && y >= 0 && y <= 40)
+                        tiles[x, y].GetComponent<Ground>().movementMarker = Instantiate(movementMarker, tiles[x, y].transform);
+                }
+            }
             }
         }
 
@@ -83,6 +95,7 @@ using UnityEngine;
         public void create(Vector2Int pos,GameObject caller)
         {
         GameObject temp = Instantiate(this.gameObject, caller.transform);
+        temp.GetComponent<Person>().pos = pos;
         
         }
     }

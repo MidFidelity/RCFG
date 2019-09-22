@@ -22,6 +22,7 @@ public partial class Ground : MonoBehaviour
     {
         EventManager.Events("select").GameEventHandler += onSelect;
         EventManager.Events("createPerson").GameEventHandler += createPerson;
+        EventManager.Events("removeMarkers").GameEventHandler += removeMarkers;
         transform.GetChild(0).GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
@@ -33,7 +34,7 @@ public partial class Ground : MonoBehaviour
 
     public void onSelect(object sender, System.EventArgs args)
     {
-        if (((GameObject)sender).GetComponent<Ground>() == this|| ((GameObject)sender)==content)
+        if (((GameObject)sender).GetComponent<Ground>() == this || ((GameObject)sender) == content)
         {
             select();
         }
@@ -77,7 +78,7 @@ public partial class Ground : MonoBehaviour
     {
         if (GetComponentInParent<PlayerManager>().currPlayerIndex == 1)
         {
-            this.content = Instantiate(transform.GetChild(1).GetComponent<Ore>().mine, this.transform.position+Vector3.up, Quaternion.Euler(-90, 125, 0), this.transform);
+            this.content = Instantiate(transform.GetChild(1).GetComponent<Ore>().mine, this.transform.position + Vector3.up, Quaternion.Euler(-90, 125, 0), this.transform);
         }
         else
         {
@@ -95,7 +96,7 @@ public partial class Ground : MonoBehaviour
         {
             GetComponentInParent<PlayerManager>().CurrPlayer.ironMines++;
         }
-        
+
     }
 
     public void createPerson(object sender, System.EventArgs args)
@@ -104,6 +105,15 @@ public partial class Ground : MonoBehaviour
         {
             PersonPrefab.GetComponent<Person>().create(this.pos, this.gameObject);
             GetComponentInParent<PlayerManager>().CurrPlayer.items.items["Gold"] -= 3;
+        }
+    }
+
+    public void removeMarkers(object sender, System.EventArgs args)
+    {
+        if (this.movementMarker != null)
+        {
+            Destroy(this.movementMarker);
+            movementMarker = null;
         }
     }
 
