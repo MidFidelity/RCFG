@@ -103,6 +103,7 @@ public partial class Ground : MonoBehaviour
         if (selected)
         {
             PersonPrefab.GetComponent<Person>().create(this.pos, this.gameObject);
+            GetComponentInParent<PlayerManager>().CurrPlayer.items.items["Gold"] -= 3;
         }
     }
 
